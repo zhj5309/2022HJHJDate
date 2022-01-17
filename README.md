@@ -1,37 +1,50 @@
 ## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html lang="en">
 
-You can use the [editor on GitHub](https://github.com/zhj5309/2022HJHJDate/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<style>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+</style>
 
-### Markdown
+<body>
+    <div id="show" style="font-size: 20px;text-align: center;margin-top: 50px;">
+        <div class="showW"></div>
+        <div class="showZ"></div>
+        <div class="showS"></div>
+        <div class="showX"></div>
+        <div class="showJ"></div>
+        <div class="showH"></div>
+    </div>
+</body>
+<script>
+    TimeDown(".showW", "2022-1-30 17:45:00",'距离HHJ Spring Festival holiday');
+    TimeDown(".showZ", "2022-1-30 17:30:00",'距离ZHJ Spring Festival holiday');
+     TimeDown(".showS", "2022-10-07 00:00:00",'HHJ-birthday');
+    TimeDown(".showX", "2022-08-08 00:00:00",'ZHJ-birthday');
+    function TimeDown(id, endDateStr,name) {
+        var endDate = new Date(endDateStr);
+        var nowDate = new Date();
+        var totalSeconds = parseInt((endDate - nowDate) / 1000);
+        var days = Math.floor(totalSeconds / (60 * 60 * 24));
+        var modulo = totalSeconds % (60 * 60 * 24);
+        var hours = Math.floor(modulo / (60 * 60));
+        modulo = modulo % (60 * 60);
+        var minutes = Math.floor(modulo / 60);
+        var seconds = modulo % 60;
+        document.querySelector(id).innerHTML = name +":" + days + "天" + hours + "小时" + minutes + "分钟" + seconds + "秒<br><br>";
+        setTimeout(function () {
+            TimeDown(id, endDateStr,name);
+        }, 1000)
+    }
+    TimeDown()
+    setInterval(TimeDown, 1000);
+</script>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/zhj5309/2022HJHJDate/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+</html>
