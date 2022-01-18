@@ -23,10 +23,10 @@
     </div>
 </body>
 <script>
-    TimeDown(".showW", "2022/1/30 17:45:00",'Janna Spring Festival holiday');
-    TimeDown(".showZ", "2022/1/30 17:45:00",'Ruby Spring Festival holiday');
-    TimeDown(".showS", "2022/1/27 18:00:00",'Lisa Spring Festival holiday');
-    function TimeDown(id, endDateStr,name) {
+    TimeDown(".showW", "2022/1/30 17:45:00",'Janna');
+    TimeDown(".showZ", "2022/1/30 17:45:00",'Ruby);
+    TimeDown(".showS", "2022/1/27 18:00:00",'Lisa');
+       function TimeDown(id, endDateStr,name) {
         var endDate = new Date(endDateStr);
         var nowDate = new Date();
         var totalSeconds = parseInt((endDate - nowDate) / 1000);
@@ -36,7 +36,12 @@
         modulo = modulo % (60 * 60);
         var minutes = Math.floor(modulo / 60);
         var seconds = modulo % 60;
-        document.querySelector(id).innerHTML = name +":" + days + "天" + hours + "小时" + minutes + "分钟" + seconds + "秒<br><br>";
+		if(days <0 && hours <0 && minutes <0 && seconds <0){
+			document.querySelector(id).innerHTML = name + ",恭喜你！！！你已经放假了！！！<br><br>";
+        } else {
+			document.querySelector(id).innerHTML = name +":" + days + "天" + hours + "小时" + minutes + "分钟" + seconds + "秒<br><br>";
+		}
+
         setTimeout(function () {
             TimeDown(id, endDateStr,name);
         }, 1000)
