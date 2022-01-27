@@ -25,8 +25,7 @@
 <script>
     TimeDown(".showW", "2022/1/29 17:45:00",'Janna');
     TimeDown(".showZ", "2022/1/29 17:45:00",'Ruby');
-    TimeDown(".showS", "2022/1/27 18:00:00",'Lisa');
-       function TimeDown(id, endDateStr,name) {
+    TimeDown(".showS", "2022/1/27 18:00:00",'Lisa');    function TimeDown(id, endDateStr,name) {
         var endDate = new Date(endDateStr);
         var nowDate = new Date();
         var totalSeconds = parseInt((endDate - nowDate) / 1000);
@@ -37,7 +36,8 @@
         var minutes = Math.floor(modulo / 60);
         var seconds = modulo % 60;
 		if(days <0 && hours <0 && minutes <0 && seconds <0){
-			document.querySelector(id).innerHTML = name + ",恭喜你！！！你已经放假了！！！<br><br>";
+			// document.querySelector(id).innerHTML = name + ",恭喜你！！！你已经放假了！！！<br><br>";
+			document.querySelector(id).innerHTML = name + ",恭喜你！！！你已经放假了！！！<a href=FireWork.html> 点击放烟花</a><br><br>";
         } else {
 			document.querySelector(id).innerHTML = name +":" + days + "天" + hours + "小时" + minutes + "分钟" + seconds + "秒<br><br>";
 		}
