@@ -1,78 +1,21 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>倒计时</title>
-  <style>
-    div {
-      margin-top: 200px;
-      margin-left: 500px;
-      line-height: 50px;
-      font-size: 20px;
-      font-weight: 900;
-    }
-    
-    li {
-      float: left;
-      margin: 2px;
-      list-style: none;
-      width: 50px;
-      height: 50px;
-      color:white;
-      line-height: 50px;
-      text-align: center;
-      background-color: black;
-      font-size: 20px;
-      font-weight: 900;
-      
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新年倒计时</title>
+    <link rel="stylesheet" href="NewYear.css">
+    <script src="NewYear.js"></script>
 </head>
 <body>
-  <div>
-    <li class="text" style = "width: 135px;">跨年倒计时：</li>
-    <li class="day">0</li>
-    <li class="hour">1</li>
-    <li class="minute">2</li>
-    <li class="second">3</li>
-    
-  </div>
-
-  <script>
-    //获取元素
-    var day = document.querySelector('.day');
-    var hour = document.querySelector('.hour');//获取小时元素
-    var minute = document.querySelector('.minute');//获取分钟元素
-    var second = document.querySelector('.second');//获取秒数元素
-    var inputTime = +new Date('2021-1-1 00:00:00');//输入一个时间
-    countDown ();//在定时器开启之前先调用一次函数，防止一秒的空白期
-    //开启定时器
-    setInterval(countDown, 1000);
-    function countDown (){
-      //获取当前的时间
-      var nowTime = +new Date();
-      var times = (inputTime - nowTime) / 1000;//times是剩余的总秒数
-      var d = parseInt(times / 60 / 60 /24);
-      d = d < 10 ? '0'+ d : d;
-      //将剩余的小时数给小时的盒子
-      day.innerHTML = d+"天";
-      //小时
-      var h = parseInt(times / 60 / 60 % 24);
-      h = h < 10 ? '0'+ h : h;
-      //将剩余的小时数给小时的盒子
-      hour.innerHTML = h+"时";
-      // 分钟
-      var m = parseInt(times / 60 % 60);
-      m = m < 10 ? '0'+ m : m;
-      //将剩余的分钟数给分钟的盒子
-      minute.innerHTML = m+"分";
-      //秒数
-      var s = parseInt(times % 60);
-      s = s < 10 ? '0'+ s : s;
-      //将剩余的描述给秒的盒子
-      second.innerHTML = s+"秒";
-    }
-  </script>
+    <div class="fa">
+        <span class="fir">距离2023春节(1-22)还有</span>
+        <div class="sj">
+            <div><span></span><span class="zi">天</span></div>
+            <div><span></span><span class="zi">时</span></div>
+            <div><span></span><span class="zi">分</span></div>
+            <div><span></span><span class="zi">秒</span></div>
+        </div>
+    </div>
 </body>
 </html>
